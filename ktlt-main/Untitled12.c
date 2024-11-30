@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+int main(){
 float min = x[1] * x[2] * x[3];
 int minIndex = 1;
 for(i = 2; i <= n-2; i++) {
@@ -11,3 +11,4 @@ for(i = 2; i <= n-2; i++) {
 }
 printf("bo 3 phan tu co tich nho nhat la %f %f %f\n",x[minIndex],x[minIndex+1],x[minIndex+2]);
 printf("Tich nho nhat la %f",min);
+}
