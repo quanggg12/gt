@@ -48,7 +48,7 @@ int main(){
 //     int m, n;
 //     cin >> m >> n;
 
-//     // Khởi tạo bảng dp
+//    
 //     for (int i = 1; i <= m; i++) {
 //         for (int j = 1; j <= n; j++) {
 //             if (i == j) {
