@@ -9,12 +9,30 @@ int main() {
     ios::sync_with_stdio(false); cin.tie(nullptr);
     int n, m, x, y;
     cin >> n >> m >> x >> y;
-    vector<vector<int>> a(n, vector<int>(m));
+    x--; y--;  
+ 
+    vector<vector<int>> A(n, vector<int>(m));
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            cin >> a[i][j];
+            cin >> A[i][j];
         }
     }
-    
+ 
+    int sum = 0;
+    for (int i = 0; i < n; i++) {
+        int j = i - (x - y);
+        if (j >= 0 && j < m) {
+            sum += A[i][j];
+        }
+    }
+ 
+    for (int i = 0; i < n; i++) {
+        int j = (x + y) - i;
+        if (j >= 0 && j < m && (i != x || j != y)) { 
+            sum += A[i][j];
+        }
+    }
+ 
+    cout << sum << endl;
     return 0;
 }
