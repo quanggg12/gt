@@ -6,7 +6,7 @@ typedef struct
 	int x, y, z;
 } diem;
 
-void nhap(diem %N)
+void nhap(diem &N)
 {
 	printf("Nhap toa do cua diem %c", N);
 	printf("Toa do x:"); scanf("%d", &N.x);
