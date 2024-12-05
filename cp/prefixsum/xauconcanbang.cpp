@@ -3,28 +3,23 @@
 
 using namespace std;
 
-// dem so luong xau con co so luong so 0 bang so luong so 1
-int rs(const string& s) {
-    unordered_map<int, int> prefixCount;
-    int prefixSum = 0;
-    int count = 0;
- 
-   
-    prefixCount[0] = 1;
- 
+// Dem so luong xau con co luong so 0 bang luong so 1
+int rs(string s) {
+    unordered_map<int, int> pre_count;  
+    int pre_sum = 0;  
+    int cnt = 0;     
+    pre_count[0] = 1; 
+
     for (char c : s) {
-  
-        prefixSum += (c == '1' ? 1 : -1);
- 
-        
-        if (prefixCount.find(prefixSum) != prefixCount.end()) {
-            count += prefixCount[prefixSum];
+        pre_sum += (c == '1') ? 1 : -1;  
+        if (pre_count.find(pre_sum) != pre_count.end()) {
+            cnt += pre_count[pre_sum];
         }
- 
-        prefixCount[prefixSum]++;
+
+        pre_count[pre_sum]++;
     }
- 
-    return count;
+
+    return cnt;
 }
 
 int main() {
