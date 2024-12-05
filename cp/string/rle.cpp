@@ -41,3 +41,9 @@ int main() {
 
     return 0;
 }
+// Input:
+// aabbbbccccc
+// 1a1b1c
+// Output:
+// 2a4b5c
+// abc
