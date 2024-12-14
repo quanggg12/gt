@@ -53,7 +53,7 @@ int count_connected_components() {
     }
     return cnt;
 }
-
+//----------------------------------
 // find path from u to v
 int parent[100001];
 
@@ -103,7 +103,7 @@ void path(int u, int v) {
         cout << '\n';
     }
 }
-
+// ---------------------------------------------------
 // check if there is a cycle in the graph undirected
 
 // bool dfs(int u, int p) {
@@ -185,11 +185,90 @@ bool bfs() { // Kahn
     return count != n;
 }
 
+// ---------------------------
+// topo
+int n, m;
+vector<int> adj[100001];
+bool vis[100001];
+stack<int> st;
 
+void init() {
+    cin >> n >> m;
+    for (int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        adj[u].push_back(v);
+    }
+    memset(vis, false, sizeof(vis));
+}
+
+void dfs(int u) {
+    vis[u] = true;
+    for (int v : adj[u]) {
+        if (!vis[v]) {
+            dfs(v);
+        }
+    }
+    st.push(u);
+}
 
 
 int main() {
     ios::sync_with_stdio(0); cin.tie(0);
     init();
+    for (int i = 1; i <= n; i++) {
+        if (!vis[i]) {
+            dfs(i);
+        }
+    }
+    while (!st.empty()) {
+        cout << st.top() << " ";
+        st.pop();
+    }    
     return 0;
 }
+
+
+// bfs
+// int n, m;
+// vector<int> adj[100001];
+// int deg[100001];
+
+// void init() {
+//     cin >> n >> m;
+//     for (int i = 0; i < m; i++) {
+//         int u, v;
+//         cin >> u >> v;
+//         adj[u].push_back(v);
+//         deg[v]++;
+//     }
+// }
+
+// void kahn() {
+//     queue<int> q;
+//     for (int i = 1; i <= n; i++) {
+//         if (deg[i] == 0) {
+//             q.push(i);
+//         }
+//     }
+//     vector<int> res;
+//     while (!q.empty()) {
+//         int u = q.front();
+//         q.pop();
+//         res.push_back(u);
+//         for (int v : adj[u]) {
+//             deg[v]--;
+//             if (deg[v] == 0) {
+//                 q.push(v);
+//             }
+//         }
+//     }
+//     if (res.size() != n) {
+//         cout << "graph has a cycle\n";
+//     } else {
+//         for (int i : res) {
+//             cout << i << " ";
+//         }
+//     }   
+// }
+
