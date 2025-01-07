@@ -106,16 +106,15 @@ void path(int u, int v) {
 // ---------------------------------------------------
 // check if there is a cycle in the graph undirected
 
-// bool dfs(int u, int p) {
+// bool dfs(int u) {
 //     vis[u] = true;
 //     for (int v : adj[u]) {
-//         if (!vis[v]) {
-//             if (dfs(v, u)) {
+//         if(!vis[v]){
+//             parent[v] = u;
+//             if (dfs(v)){
 //                 return true;
 //             }
-//         } else if (v != p) {
-//             return true;
-//         }
+//         } else if (v != parent[u]) return true;
 //     }
 //     return false;
 // }
